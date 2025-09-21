@@ -1,20 +1,26 @@
-# Ant Colony – NEAT-Powered Simulation
+Ant Colony – NEAT-Powered Simulation
 
-Simulation of ants evolve through a NEAT algorithm. 
-Ants learn to grab food and bring it back to their nests.
-Fast ants are quicker to food but deplete hunger faster
+This project implements an ant colony simulation driven by the NEAT (NeuroEvolution of Augmenting Topologies) algorithm.
+Agents (ants) evolve control policies to locate food, return it to their nests, and balance the trade-off between movement speed and energy expenditure. Faster ants can reach food more quickly but deplete hunger and health at a higher rate, creating evolutionary pressure toward efficient strategies.
 
-# What to look for
-Colored ants green (slow) - red (fast)
-White ants have food with them
-Black dots around screen are the nests
-Food is the red dots
+Simulation Overview
 
-# Key Settings
-```python
-MAX_FOOD = 10  #how many food items can be on the screen at once
-FOOD_SPAWN_TIME = 30 # frames between food drops
-MAX_FRAMES = 1000 # how many frames the simulation runs for so this is one minute
-ANT_COUNT = 100 # how many ants are in the simulation
-```
+Ant coloring: Ant color corresponds to speed (green = slower, red = faster).
 
+Food collection: Ants carrying food are marked in white.
+
+Environment markers: Red dots represent food items; black dots represent nest locations.
+
+Behavioral dynamics: Agents must manage hunger decay, health loss, and survival while optimizing food retrieval.
+
+Technical Features
+
+Neuroevolutionary learning: Control policies are evolved using NEAT feed-forward networks with continuous movement outputs.
+
+Resource and survival system: Hunger and health values decay over time, with decay rates scaled by movement speed; starvation leads to agent death.
+
+Fitness evaluation: Rewards for collecting food, returning to nests, maintaining higher hunger/health, and efficient movement; penalties for starvation and inactivity.
+
+Dynamic environment: Multiple nest locations, limited food capacity, and periodic food spawning introduce resource scarcity and competition.
+
+Visualization and metrics: Pygame-based interface with live statistics including generation, best fitness, average speed, hunger, and health.
